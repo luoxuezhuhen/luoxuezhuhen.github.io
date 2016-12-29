@@ -1,0 +1,374 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>第八章&mdash;&mdash;指针 </title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="4datfeioguk54kbj697asmdapa">第八章&mdash;&mdash;指针 </a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%8F%90%E7%BA%B2%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 _files/images/%E7%AC%AC%E5%85%AB%E7%AB%A0%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 .jpg"></div>
+<h2 class="topic">
+<a name="7ggqpd81fgje4th7vf8mr1tg6m">指针变量</a>
+</h2>
+<p class="labelsAndMarkers">
+<img class="marker" src="%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%8F%90%E7%BA%B2%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 _files/images/priority_1.png"></p>
+<h3 class="topic">
+<a name="7d82565hng1uen74s089o3mkdf">&nbsp;声明</a>
+</h3>
+<h3 class="topic">
+<a name="33csn48ahim40n6sefl14867gb">&nbsp;&nbsp;数据类型符*指针变量名</a>
+</h3>
+<h3 class="topic">
+<a name="0i311olsrgr56uit19rh7p2ot3">&nbsp;赋值与初始化</a>
+</h3>
+<h3 class="topic">
+<a name="4jnu1i63ivicob15pn5b20nn0e">&nbsp;引用</a>
+</h3>
+<h2 class="topic">
+<a name="47sssc1bp7up8s4beuifd3tthn">指针运算</a>
+</h2>
+<p class="labelsAndMarkers">
+<img class="marker" src="%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%8F%90%E7%BA%B2%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 _files/images/priority_2.png"></p>
+<h3 class="topic">
+<a name="0j6i043ekheagseo9armuhujlj">&nbsp;指针运算符</a>
+</h3>
+<h3 class="topic">
+<a name="4b8g950p34sm6uspm2ubbvn9k4">&nbsp;&nbsp;取内容</a>
+</h3>
+<h3 class="topic">
+<a name="3cdeshg6nib0d00t26cl75gekn">&nbsp;&nbsp;取地址</a>
+</h3>
+<h3 class="topic">
+<a name="4ge5juh8fdj7mb5mqt1f8sb5m6">&nbsp;&nbsp;互逆运算</a>
+</h3>
+<p class="summary">(<a href="#4b8g950p34sm6uspm2ubbvn9k4">取内容</a>, <a href="#3cdeshg6nib0d00t26cl75gekn">取地址</a>)</p>
+<h3 class="topic">
+<a name="5sa07mh5q13hsi9k54juc58ura">&nbsp;算术运算符</a>
+</h3>
+<h3 class="topic">
+<a name="4iamg3c6fvdsmmakjaagnqst6b">&nbsp;&nbsp;指针与整数的加减</a>
+</h3>
+<h3 class="topic">
+<a name="3b4okap7360h2r1lp8tavptek6">&nbsp;&nbsp;&nbsp;当前地址加减m*n个字节（m指数据类型长度，n值参与运算的整数）</a>
+</h3>
+<h3 class="topic">
+<a name="5jhnb69188kce0g8suv32tbsjq">&nbsp;&nbsp;自加自减</a>
+</h3>
+<h3 class="topic">
+<a name="5b5e32pb2b5lkpdqpb14emtgim">&nbsp;&nbsp;&nbsp;c=*p++等同于c *P;P++(先参与运算，再进行自加)</a>
+</h3>
+<h3 class="topic">
+<a name="2o73912f9q254rpsenhu0dudjn">&nbsp;&nbsp;减法运算</a>
+</h3>
+<h3 class="topic">
+<a name="5uu1onvoto8fs6jkcfct6g83jt">&nbsp;&nbsp;&nbsp;用于数组：两个元素间元素个数</a>
+</h3>
+<h3 class="topic">
+<a name="2e4f0si8kcgjaas997e25jekga">&nbsp;关系运算符（用于同一数组）</a>
+</h3>
+<h3 class="topic">
+<a name="4shvg5016g296p3ker8gmsv2qd">&nbsp;&nbsp;==（指向同一数组元素）</a>
+</h3>
+<h3 class="topic">
+<a name="2k1l8eftu57q9230klgac7c69s">&nbsp;&nbsp;&gt;前者在后者之后</a>
+</h3>
+<h3 class="topic">
+<a name="3elq7v9t8sm2sclfeil9hiql96">&nbsp;&nbsp;&lt;前者在后者之前</a>
+</h3>
+<h2 class="topic">
+<a name="50a1q9lp8n0p4ek547rheusgpe">类型转换</a>
+</h2>
+<p class="labelsAndMarkers">
+<img class="marker" src="%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%8F%90%E7%BA%B2%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 _files/images/priority_3.png"></p>
+<h3 class="topic">
+<a name="0kaannqg9mt4ra6hqjmj9k5qn8">&nbsp;强制类型转换</a>
+</h3>
+<h3 class="topic">
+<a name="2rbn82ru22vhmv4t5p2894cg33">&nbsp;&nbsp;格式：（TYPE*）p</a>
+</h3>
+<h3 class="topic">
+<a name="50g01j557dihsg19rs0oldqovq">&nbsp;void类型指针</a>
+</h3>
+<h3 class="topic">
+<a name="100gupb7qh0bjbgk3svjqick0b">&nbsp;&nbsp;无需转换即可指向任意类型</a>
+</h3>
+<h3 class="topic">
+<a name="6pmejk2gogl96pj42ho9bmgjed">&nbsp;&nbsp;其他类型转换到void需要转换</a>
+</h3>
+<h2 class="topic">
+<a name="41i10lec70lassoj7t2r3fhf4j">数组与指针</a>
+</h2>
+<p class="labelsAndMarkers">
+<img class="marker" src="%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%8F%90%E7%BA%B2%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 _files/images/priority_4.png"></p>
+<h3 class="topic">
+<a name="5p3ffefgln7kbniv2j086f666s">&nbsp;访问数组元素</a>
+</h3>
+<h3 class="topic">
+<a name="42me294oflvg5lacm1355qsdss">&nbsp;&nbsp;下标法</a>
+</h3>
+<h3 class="topic">
+<a name="7fm2a7oapapfhnuf6g5h0k6np7">&nbsp;&nbsp;&nbsp;元素：a[k]</a>
+</h3>
+<h3 class="topic">
+<a name="0s7q03fk3ah498ord4ir6q3d96">&nbsp;&nbsp;&nbsp;元素地址：&amp;a[k]</a>
+</h3>
+<h3 class="topic">
+<a name="2u2u58jfiactee1omr02pfkndv">&nbsp;&nbsp;地址法</a>
+</h3>
+<h3 class="topic">
+<a name="5rlc0osvf5igbjvn7sm2co2n2e">&nbsp;&nbsp;&nbsp;元素：*(a+k)</a>
+</h3>
+<h3 class="topic">
+<a name="4sa0uaimsqo6pq7u1g95ecmpcs">&nbsp;&nbsp;&nbsp;元素地址：a+k</a>
+</h3>
+<h3 class="topic">
+<a name="61fh0saiqub0ukvr5m220kojoi">&nbsp;&nbsp;指针法</a>
+</h3>
+<h3 class="topic">
+<a name="3k7o5t22e82i32613hhk2boage">&nbsp;&nbsp;&nbsp;元素：*（p+k）</a>
+</h3>
+<h3 class="topic">
+<a name="01c6dpp0hqjbs342k86tc5srm9">&nbsp;&nbsp;&nbsp;元素地址：p+k</a>
+</h3>
+<h3 class="topic">
+<a name="34uksamsuhd21p2nrvtuo7oa2m">&nbsp;&nbsp;注意：</a>
+</h3>
+<h3 class="topic">
+<a name="10ruot0pljp2j70nvgjslsn34l">&nbsp;&nbsp;&nbsp;一：输入与输出时，要将数组首地址赋给指针变量</a>
+</h3>
+<h3 class="topic">
+<a name="0dln30alda9mnhfie6v62uem8j">&nbsp;&nbsp;&nbsp;二：数组名是指针常量，不可改变（a为数组名，则a++违法）</a>
+</h3>
+<h3 class="topic">
+<a name="5rcd25fk1k4rs93bm29m8grk45">&nbsp;指向多维数组的指针（类比多个一维数组）</a>
+</h3>
+<h3 class="topic">
+<a name="673911hl824a5376fpca8hhco3">&nbsp;&nbsp;访问多维数组元素（以二维数组a[i][j]为例）</a>
+</h3>
+<h3 class="topic">
+<a name="64evvehk744e76hfugbp6kn161">&nbsp;&nbsp;&nbsp;地址法</a>
+</h3>
+<h3 class="topic">
+<a name="4rg22a08bqrlf446jsghj411b5">&nbsp;&nbsp;&nbsp;&nbsp;a[i][j]元素：a[i][j]</a>
+</h3>
+<h3 class="topic">
+<a name="3rgkvp5vg5td8oloicq7fi7stv">&nbsp;&nbsp;&nbsp;&nbsp;a[i][j]地址:&amp;a[i][j]</a>
+</h3>
+<h3 class="topic">
+<a name="0e6q7r55pernshgiu297fo1v9v">&nbsp;&nbsp;&nbsp;下标法</a>
+</h3>
+<h3 class="topic">
+<a name="7callsiugavmu6a31rbuqaede8">&nbsp;&nbsp;&nbsp;&nbsp;a[i][j]元素:*(*(a+i)+j)或*(a[i]+j)</a>
+</h3>
+<h3 class="topic">
+<a name="2kogknue10f5h5t5frbgdv0vs5">&nbsp;&nbsp;&nbsp;&nbsp;a[i][j]地址:*(a+i)+j或a[i]+j</a>
+</h3>
+<h3 class="topic">
+<a name="0ppdob2i9se18nlt95sav5mo5s">&nbsp;&nbsp;指向多维数组的指针</a>
+</h3>
+<h3 class="topic">
+<a name="17uem8ua9cupg4n38pbbkp3s0h">&nbsp;&nbsp;&nbsp;遍历数组元素：*p++（p为数组首地址）</a>
+</h3>
+<h3 class="topic">
+<a name="75kqkc3cnf0qheofuuhd0an4am">&nbsp;&nbsp;&nbsp;注意（指针指向数组首地址时）</a>
+</h3>
+<h3 class="topic">
+<a name="1d7tqmpivs1r24fk034ircqm28">&nbsp;&nbsp;&nbsp;&nbsp;正确的 使用方法：p=*a&mdash;&mdash;p=a[0].</a>
+</h3>
+<h3 class="topic">
+<a name="5n9jeg0n5cpct0s5btudtukd4k">&nbsp;&nbsp;&nbsp;&nbsp;错误（类型不配）：p=a&mdash;&mdash;*p=a[0].</a>
+</h3>
+<h3 class="topic">
+<a name="7t2mfg0nsbge1kd9sjgkud98sk">&nbsp;&nbsp;&nbsp;&nbsp;注意：数组名a相当于一个二级指针</a>
+</h3>
+<p class="summary">(<a href="#1d7tqmpivs1r24fk034ircqm28">正确的 使用方法：p=*a&mdash;&mdash;p=a[0].</a>, <a href="#5n9jeg0n5cpct0s5btudtukd4k">错误（类型不配）：p=a&mdash;&mdash;*p=a[0].</a>)</p>
+<h3 class="topic">
+<a name="5ktd09a9m32iah4ag304i73nc8">&nbsp;字符串与指针</a>
+</h3>
+<h3 class="topic">
+<a name="6ccbcj6imk14pnsr4u32s8419c">&nbsp;&nbsp;指针处理字符串</a>
+</h3>
+<h3 class="topic">
+<a name="1fhs52lhmg1gi6avecjpr0v2ii">&nbsp;&nbsp;字符指针变量与字符数组的区别</a>
+</h3>
+<h3 class="topic">
+<a name="7uk25itn3ull2habfci1tlmm9t">&nbsp;&nbsp;&nbsp;储存方式</a>
+</h3>
+<h3 class="topic">
+<a name="5lo7tgmnkkfpo36s14cqo5m1um">&nbsp;&nbsp;&nbsp;&nbsp;字符数组：一段连续的储存空间</a>
+</h3>
+<h3 class="topic">
+<a name="7vkgd45hdudhkcnnjs0e203vfs">&nbsp;&nbsp;&nbsp;&nbsp;字符型指针变量：一个用于存放地址的存储空间</a>
+</h3>
+<h3 class="topic">
+<a name="07iekt5pkihb9vsgt8rl7djsdr">&nbsp;&nbsp;&nbsp;运算方式</a>
+</h3>
+<h3 class="topic">
+<a name="70echh4shdmnu4sqgsrnaqu389">&nbsp;&nbsp;&nbsp;&nbsp;字符型指针：变量，p++正确</a>
+</h3>
+<h3 class="topic">
+<a name="2dn7ef2u2sp57jc6qh2rug22ut">&nbsp;&nbsp;&nbsp;&nbsp;字符数组a[ ]:a是字符常量，a++错误</a>
+</h3>
+<h3 class="topic">
+<a name="3u2kjigj7e3kuejmsahl5svso3">&nbsp;&nbsp;&nbsp;赋值方式</a>
+</h3>
+<h3 class="topic">
+<a name="0j25apnsbq9m5r703tgra5bh2r">&nbsp;&nbsp;&nbsp;&nbsp;字符数组：不可整体赋值</a>
+</h3>
+<h3 class="topic">
+<a name="4qkgtmu6higm1gg09v62do3pl8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正确：char s[20]="C language"</a>
+</h3>
+<h3 class="topic">
+<a name="5q9unta7gqh0oo11o8q3mpjk3s">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;错误：s=&ldquo;C language&rdquo;</a>
+</h3>
+<h3 class="topic">
+<a name="4djmf1mpaho65jruji33mt814a">&nbsp;&nbsp;&nbsp;&nbsp;字符型指针：可整体赋值</a>
+</h3>
+<h2 class="topic">
+<a name="3tc6qfie79mk8d8e805bakdump">函数与指针</a>
+</h2>
+<p class="labelsAndMarkers">
+<img class="marker" src="%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%8F%90%E7%BA%B2%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 _files/images/priority_5.png"></p>
+<h3 class="topic">
+<a name="5lddgh62o5uubsje5eokil9gkt">&nbsp;指针作为函数参数</a>
+</h3>
+<h3 class="topic">
+<a name="49mbjghhup97ru4mt9nruag07j">&nbsp;&nbsp;普通变量地址作为函数参数（址传递）</a>
+</h3>
+<h3 class="topic">
+<a name="1qd0jbsdtteumct1q6vpcdr0md">&nbsp;&nbsp;数组名作为函数参数（址传递）</a>
+</h3>
+<h3 class="topic">
+<a name="0fvibvvbf0j20l42t5eq9k1d0u">&nbsp;指针作为函数返回值</a>
+</h3>
+<h3 class="topic">
+<a name="20so487tdkrtg0o91njdgfee18">&nbsp;&nbsp;定义格式：  数据类型*函数名（形参列表）{函数体}&mdash;&mdash;&mdash;&mdash;数据类型指的是指针所指向的数据类型。</a>
+</h3>
+<h3 class="topic">
+<a name="6g9bdm5bi4rm0rms4nfevmoml9">&nbsp;指向函数的指针</a>
+</h3>
+<h3 class="topic">
+<a name="2j9bvc7uviqaqi24nq5qq3va2a">&nbsp;&nbsp;声明格式：  数据类型 （*指针变量名）（形参列表）</a>
+</h3>
+<h2 class="topic">
+<a name="39phg78os41hfk0k38sslv6iae">指针数组</a>
+</h2>
+<p class="labelsAndMarkers">
+<img class="marker" src="%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%8F%90%E7%BA%B2%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 _files/images/priority_6.png"></p>
+<h3 class="topic">
+<a name="2s4olhih28vglh41roqaenpua4">&nbsp;定义</a>
+</h3>
+<h3 class="topic">
+<a name="3h2vjmeqvj70uhgp7le8k2jtd5">&nbsp;&nbsp;类型名称*数组名称【数组长度】</a>
+</h3>
+<h3 class="topic">
+<a name="0bc2okaeldkhh9glih8c4l9ajv">&nbsp;初始化</a>
+</h3>
+<h3 class="topic">
+<a name="0ijh8m32ger3tprcs8l44eql1d">&nbsp;&nbsp;自动计算长度：char *pa[]={"one","two""three"}&mdash;&mdash;（储存了三个字符串首地址）</a>
+</h3>
+<h3 class="topic">
+<a name="655n60refkis16bhuco0bbruf7">&nbsp;带有参数的main函数</a>
+</h3>
+<p class="labelsAndMarkers">
+<img class="marker" src="%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%8F%90%E7%BA%B2%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 _files/images/flag_red.png"></p>
+<h3 class="topic">
+<a name="2il9pfi632g6na4ok50d507gdo">&nbsp;&nbsp;参数来源：命令行下执行（类似于DOS）&mdash;&mdash;可执行文件名  参数1 参数2</a>
+</h3>
+<h3 class="topic">
+<a name="19e713ev0ccou1m8q8qu2h06a5">&nbsp;&nbsp;正确定义：void main（int argc,char *argc[]）{&hellip;&hellip;}</a>
+</h3>
+<h3 class="topic">
+<a name="50m99rhbmkntold1dl1kq82b5u">&nbsp;&nbsp;&nbsp;argc：整形参数，命令行中所包含的字符串的个数</a>
+</h3>
+<h3 class="topic">
+<a name="2rjvf585o4pkc36nf3q9au7q64">&nbsp;&nbsp;&nbsp;argv：指针数组，指向命令行中的各个字符串</a>
+</h3>
+<h2 class="topic">
+<a name="01phbmkmf6qmcaqp7abn206ilr">数组指针</a>
+</h2>
+<p class="labelsAndMarkers">
+<img class="marker" src="%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%8F%90%E7%BA%B2%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 _files/images/priority_7.png"></p>
+<h3 class="topic">
+<a name="6qq1gko8ho0kfgfshv8vhiur93">&nbsp;话题引子：（对数组的理解）</a>
+</h3>
+<h3 class="topic">
+<a name="0ktss7upvrfqpe2m83d6gsnteq">&nbsp;&nbsp;数组的实质是一个可容纳n个元素的数据类型，即int  a[5]可表示为int[5] a</a>
+</h3>
+<h3 class="topic">
+<a name="42orb7c8i9e9j0vfhgfdi78289">&nbsp;声明格式：数据类型（*变量名称）【一维数组长度】</a>
+</h3>
+<h3 class="topic">
+<a name="615qdstgbeipdejacnbihipl3s">&nbsp;自由主题</a>
+</h3>
+<h2 class="topic">
+<a name="4debkms79ocet3qh8jmnmhsi6q">指向指针的指针（二级指针）</a>
+</h2>
+<p class="labelsAndMarkers">
+<img class="marker" src="%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%8F%90%E7%BA%B2%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 _files/images/priority_8.png"></p>
+<h3 class="topic">
+<a name="19n12te704hhilb2t7qg02vbd0">&nbsp;声明格式：  数据类型 **指针变量名称</a>
+</h3>
+<h2 class="topic">
+<a name="1oqjollthvj4apkqm2uetv7vno">内存管理</a>
+</h2>
+<p class="labelsAndMarkers">
+<img class="marker" src="%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%8F%90%E7%BA%B2%E2%80%94%E2%80%94%E6%8C%87%E9%92%88 _files/images/priority_9.png"></p>
+<h3 class="topic">
+<a name="2rjntnajut4q9f97s2b675tv5n">&nbsp;内存管理函数（stdlib.h）</a>
+</h3>
+<h3 class="topic">
+<a name="7dcbqo6u402je20bib8eam0npb">&nbsp;&nbsp;calloc（）&mdash;&mdash;连续内存动态分布函数</a>
+</h3>
+<h3 class="topic">
+<a name="0nff8k6f1vmqf0a98n6meki5oq">&nbsp;&nbsp;&nbsp;函数原型：void *malloc(unsigned size )</a>
+</h3>
+<h3 class="topic">
+<a name="0j61ajqma2d65garmvgdhsq6k2">&nbsp;&nbsp;&nbsp;函数作用：申请一个连续的内存空间</a>
+</h3>
+<h3 class="topic">
+<a name="47ae3l9u870cuckm4db4roa76v">&nbsp;&nbsp;malloc（）&mdash;&mdash;动态内存分配函数</a>
+</h3>
+<h3 class="topic">
+<a name="1vuk38m89dejfve6inl6lof1h9">&nbsp;&nbsp;&nbsp;函数原型:void *calloc(unsigned n,unsigned size);</a>
+</h3>
+<h3 class="topic">
+<a name="08mbki0tilum0v5pnhouq10afg">&nbsp;&nbsp;&nbsp;函数作用：申请n个连续存储区域，每个存储区域为size个字节</a>
+</h3>
+<h3 class="topic">
+<a name="095rlm9lr0jbs2japafncbj7vt">&nbsp;&nbsp;realloc（）&mdash;&mdash;内存分配调整函数</a>
+</h3>
+<h3 class="topic">
+<a name="53nca6e9lmprsrmq9lfi9ukpvq">&nbsp;&nbsp;&nbsp;函数原型：void *realloc(void *ptr,unsigned size);</a>
+</h3>
+<h3 class="topic">
+<a name="32gemaqh7gfhnv5fcobkr4lba4">&nbsp;&nbsp;&nbsp;函数作用：重新调整大小</a>
+</h3>
+<h3 class="topic">
+<a name="5j4kskqo4f0j6h6q5jtl1d9g8o">&nbsp;&nbsp;free（）&mdash;&mdash;动态内存释放函数</a>
+</h3>
+<h3 class="topic">
+<a name="2i8j9umd5ponkdch9gajgji29q">&nbsp;&nbsp;&nbsp;函数原型：void free(void *ptr);</a>
+</h3>
+<h3 class="topic">
+<a name="4r0m4ktssg3b6d2r8bpca26ttr">&nbsp;&nbsp;&nbsp;函数作用：释放由动态分配函数所申请的空间</a>
+</h3>
+<h3 class="topic">
+<a name="3l390ri33s41mc9bmi6j7lpnqj">&nbsp;动态内存分配应用</a>
+</h3>
+<h3 class="topic">
+<a name="1m2gi70b1ddbgrbvsotfg6ujsg">&nbsp;&nbsp;字符串操作</a>
+</h3>
+<h3 class="topic">
+<a name="4ag9gjr3g9ovp5qc6g4bqgnigb">&nbsp;&nbsp;动态数组操作</a>
+</h3>
+<h2 class="topic">
+<a name="3o60j9ktv4bi92hjdo4gvn2cc8">注意，区分指针数组与数组指针，关键看后面表示数据类型的那个词语</a>
+</h2>
+<p class="summary">(<a href="#39phg78os41hfk0k38sslv6iae">指针数组</a>, <a href="#01phbmkmf6qmcaqp7abn206ilr">数组指针</a>)</p>
+</body>
+</html>
